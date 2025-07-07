@@ -1,0 +1,65 @@
+{
+    "name": "DMNO Development",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "22"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.vscode-typescript-next",
+                "ms-vscode.vscode-json",
+                "bradlc.vscode-tailwindcss",
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint",
+                "ms-vscode.vscode-eslint",
+                "ms-vscode.vscode-markdown",
+                "ms-vscode.vscode-yaml",
+                "astro-build.astro-vscode",
+                "unifiedjs.vscode-mdx",
+                "ms-vscode.vscode-typescript-next"
+            ],
+            "settings": {
+                "typescript.preferences.importModuleSpecifier": "relative",
+                "typescript.suggest.autoImports": true,
+                "editor.formatOnSave": true,
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "editor.codeActionsOnSave": {
+                    "source.fixAll.eslint": "explicit"
+                },
+                "files.associations": {
+                    "*.mts": "typescript"
+                }
+            }
+        }
+    },
+    "forwardPorts": [
+        4321,
+        5173,
+        3000
+    ],
+    "portsAttributes": {
+        "4321": {
+            "label": "Docs Site",
+            "onAutoForward": "notify"
+        },
+        "5173": {
+            "label": "Vite Dev Server",
+            "onAutoForward": "notify"
+        },
+        "3000": {
+            "label": "Dev Server",
+            "onAutoForward": "notify"
+        }
+    },
+    "onCreateCommand": "bash .devcontainer/on-create.sh",
+    "postCreateCommand": "bash .devcontainer/post-create.sh",
+    "postStartCommand": [
+        "bash",
+        "-c",
+        "pnpm install"
+    ],
+    "remoteUser": "node"
+}

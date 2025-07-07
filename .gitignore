@@ -31,3 +31,4 @@ changesets-summary.json
 # local ssl certs
 **/.dmno/certs
 
+**/.devpod-internal
